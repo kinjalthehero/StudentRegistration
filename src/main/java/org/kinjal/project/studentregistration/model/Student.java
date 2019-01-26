@@ -1,41 +1,21 @@
 package org.kinjal.project.studentregistration.model;
 
 import java.util.Date;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlRootElement;
-
-import org.kinjal.project.studentregistration.service.EmailService;
 
 @XmlRootElement
 public class Student {
 	
+	private Long studentId;
 	private String firstName;
     private String lastName;
     private String address;
     private String enrolledDepartment;
 	private Date created;
 	private Email email;
-	public Email getEmail() {
-		
-		return email;
-	}
-
-	public void setEmail(Email email) {
-		this.email = email;
-	}
-
-	EmailService emailObject;
 	
-    
     public Student() {
-    	this.firstName = "";
-        this.lastName = "";
-        this.address = "";
-        this.enrolledDepartment = "";
         this.created = new Date();
-        this.email = null;
-        this.emailObject = null;
     }
     
     public Student(String firstName, String lastName, String address, String departmentName){
@@ -44,9 +24,7 @@ public class Student {
         this.address = address;
         this.enrolledDepartment = departmentName;
         this.created = new Date();
-        this.emailObject = new EmailService();
-        this.email = new Email();
-        this.email.setEmailAddress(emailObject.generateEmail(this.firstName, this.lastName, this.enrolledDepartment));
+        this.email = new Email();        
     }
 
 	public String getFirstName() {
@@ -88,5 +66,20 @@ public class Student {
 	public void setCreated(Date created) {
 		this.created = created;
 	}
+	
+	public Email getEmail() {
+		return email;
+	}
 
+	public void setEmail(Email email) {
+		this.email = email;
+	}
+	
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
 }

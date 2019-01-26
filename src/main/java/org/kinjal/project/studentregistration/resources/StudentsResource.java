@@ -1,7 +1,6 @@
 package org.kinjal.project.studentregistration.resources;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -34,30 +33,25 @@ public class StudentsResource {
 	
 	@POST
 	public Student addProfile(Student profile) {
-		return studentService.addProfile(profile);
+		return studentService.addStudent(profile);
 	}
 	
-	/*@GET
-	@Path("/{profileName}")
-	public Student getProfile(@PathParam("studentName") String studentName) {
-		return studentService.getProfile(studentName);
+	@GET
+	@Path("/{studentId}")
+	public Student getProfile(@PathParam("studentId") Long id) {
+		return studentService.getStudent(id);
 	}
 	
 	@PUT
-	@Path("/{profileName}")
-	public Student updateProfile(@PathParam("studentName") String studentName, Student student) {
-		profile.setProfileName(profileName);
-		return studentService.updateProfile(profile);
+	@Path("/{studentId}")
+	public Student updateProfile(@PathParam("studentId") Long id, Student student) {
+		student.setStudentId(id);
+		return studentService.updateStudent(student);
 	}
 	
 	@DELETE
-	@Path("/{profileName}")
-	public void deleteProfile(@PathParam("studentName") String studentName) {
-		studentService.removeProfile(profileName);
-	}*/
-	
-	
-	
-	
-
+	@Path("/{studentId}")
+	public void deleteProfile(@PathParam("studentId") Long id) {
+		studentService.removeProfile(id);
+	}
 }

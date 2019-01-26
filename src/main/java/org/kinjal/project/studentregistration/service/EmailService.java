@@ -16,15 +16,16 @@ public class EmailService {
 		return emailAddress; 
 	}
 	
-	public void assignRandomPassword() {
+	public String assignRandomPassword() {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 8; i++)
 			sb.append(ALPHABET.charAt(RANDOM.nextInt((ALPHABET.length()))));
-		this.password = sb.toString();
+		return sb.toString();
+		//this.password = sb.toString();
 	}
 
-	public void setNewPassword(String newPassword) {
-		this.password = newPassword;
+	public String setNewPassword(String newPassword) {
+		return newPassword;
 	}
 
 }
